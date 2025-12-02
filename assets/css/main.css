@@ -58,7 +58,6 @@ Version: 1.0.0
         42.2 Grid Spacing
 --------------------------------------------------------------*/
 
-
 /* 01. Import Vendor */
 @import url('../webfonts/font-family-anton.css');
 @import url('../webfonts/font-family-inter.css');
@@ -120,41 +119,14 @@ Version: 1.0.0
     }
 }
 
-@keyframes menu-animation {
+@keyframes fade-in-left {
     0% {
         opacity: 0;
-        -webkit-transform: scale(.04) translateY(300%);
-        transform: scale(.04) translateY(300%);
-    }
-    40% {
-        -webkit-transform: scale(.04) translateY(0);
-        transform: scale(.04) translateY(0);
-        -webkit-transition: ease-out;
-        transition: ease-out;
-    }
-    60% {
-        opacity: 1;
-        -webkit-transform: scale(.02) translateY(0);
-        transform: scale(.02) translateY(0);
-    }
-    61% {
-        opacity: 1;
-        -webkit-transform: scale(.04) translateY(0);
-        transform: scale(.04) translateY(0);
-    }
-    99.9% {
-        opacity: 1;
-        height: 0;
-        padding-bottom: 100%;
-        border-radius: 100%;
+        transform: translateX(-100px);
     }
     100% {
         opacity: 1;
-        -webkit-transform: scale(1) translateY(0);
-        transform: scale(1) translateY(0);
-        height: 100%;
-        padding-bottom: 0;
-        border-radius: 0;
+        transform: translateX(0);
     }
 }
 
@@ -1347,6 +1319,8 @@ ul{
     flex-direction: row;
     padding-left: 20px;
     border-left: 5px solid var(--accent-color);
+    position: relative;
+    overflow: hidden;
 }
 
 /* 16. Bread Crumbstyles */
@@ -2698,6 +2672,7 @@ ul{
 
 .contact-content-heading{
     font-size: 115px;
+    animation: fade-in-left 1s ease-in;
 }
 
 .contact-description-container{
