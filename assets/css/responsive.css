@@ -172,6 +172,9 @@
         left: 0px;
         width: 69%;
     }
+    .cta-highlight-content{
+        width: 67%;
+    }
     .card-blog .blog-title{
         font-size: 24px;
     }
@@ -407,6 +410,8 @@
     }
     .team-title-container{
         text-align: center;
+        justify-content: center;
+        align-items: center;
     }
     .pricing-detail-list li{
         font-size: 14px;
@@ -450,6 +455,12 @@
     }
     .contact-content-heading{
         font-size: 60px;
+    }
+    .cta-highlight-content{
+        width: 100%;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
     }
     .footer-info{
         font-size: 12px;

@@ -318,7 +318,7 @@ ul{
     line-height: 1em;
     letter-spacing: 1px;
     text-decoration: none;
-    align-self: flex-start;
+    text-align: center;
     border-radius: 0px;
     padding: 17px 34px 17px 34px;
     transition: all 300ms;
@@ -1333,6 +1333,9 @@ ul{
     display: flex;
     flex-direction: column;
     gap: 20px 20px;
+    justify-content: flex-start;
+    align-items: start;
+    text-align: start;
     width: 40%;
     z-index: 2;
 }
