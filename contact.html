@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Montra</title>
+    <link rel="stylesheet" href="./assets/css/main.css">
+    <link rel="stylesheet" href="./assets/css/responsive.css">
+    <link rel="web icon" href="./assets/images/favicon.ico">
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <div id="header"></div>
+    </header>
+
+    <!-- Sidebar Section -->
+    <aside>
+        <div id="sidebar"></div>
+    </aside>
+
+    <!-- Main Section -->
+    <main>
+        <!-- Banner Inner Section -->
+        <section class="section banner-inner contact-banner">
+            <div class="banner-overlay"></div>
+            <div class="hero-container">
+                <div class="banner-inner-container">
+                    <h2>Contact Us</h2>
+                    <nav class="breadcrumb">
+                        <a href="./index.html" class="breadcrumb-item">Home</a>
+                        <span class="separator">/</span>
+                        <span class="breadcrumb-item current">Contact Us</span>
+                    </nav>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="section">
+            <div class="hero-container">
+                <div class="contact-content-wrapper">
+                    <div class="row row-cols-md-2 row-cols-1 grid-spacer-2">
+                        <div class="col">
+                            <div class="heading-container">
+                                <h2 class="contact-content-heading">Let's Work Together</h2>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="contact-description-container">
+                                <p>Whether you're ready to start a project or just exploring your options, we're here to help. Reach out and let's make something amazing together.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row row-cols-lg-2 row-cols-md-2 row-cols-1 grid-spacer-2">
+                        <div class="col col-lg-4 col-md-6">
+                            <div class="d-flex flex-column gspace-5">
+                                <div class="d-flex flex-column gspace-2">
+                                    <span class="contact-info-heading">Phone Number</span>
+                                    <h4>+1 (234) 567-8901</h4>
+                                </div>
+                                <div class="d-flex flex-column gspace-2">
+                                    <span class="contact-info-heading">Email Address</span>
+                                    <h4>hello@montrastudio.com</h4>
+                                </div>
+                                <div class="d-flex flex-column gspace-2">
+                                    <span class="contact-info-heading">Bussiness Hours</span>
+                                    <h4>Mon - Fri: 9AM - 6PM</h4>
+                                </div>
+                                <div class="d-flex flex-column gspace-2">
+                                    <span class="contact-info-heading">Studio Location</span>
+                                    <h4>123 Montra Studio Bulevard., Los Angeles, CA 90210</h4>
+                                </div>
+                                <div class="d-flex flex-column gspace-2">
+                                    <span class="contact-info-heading">Social Media</span>
+                                    <div class="d-flex flex-row gspace-2 align-items-center">
+                                        <a href="#" class="social-icon">
+                                            <i class="fa-brands fa-instagram"></i>
+                                        </a>
+                                        <a href="#" class="social-icon">
+                                            <i class="fa-brands fa-facebook"></i>
+                                        </a>
+                                        <a href="#" class="social-icon">
+                                            <i class="fa-brands fa-x-twitter"></i>
+                                        </a>
+                                        <a href="#" class="social-icon">
+                                            <i class="fa-brands fa-youtube"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col col-lg-8 col-md-6">
+                            <div class="d-flex flex-column gspace-2">
+                                <div id="success-message" class="alert success hidden">
+                                    <span class="check-icon"><i class="fa-solid fa-2xl fa-check"></i></span>
+                                    <p>Thank you! Form submitted successfully.</p>
+                                </div>
+                                
+                                <div id="error-message" class="alert error hidden">
+                                    <span class="cross-icon"><i class="fa-solid fa-2xl fa-xmark"></i></span>
+                                    <p>Oops! Form submission failed. Please try again.</p>
+                                </div>
+                                <div class="card card-contact-form">
+                                    <h3>Send us a Messae</h3>
+                                    <form id="contact-form" action="./assets/php/submit-contact.php" class="form">
+                                        <div class="row row-cols-lg-2 row-cols-1 grid-spacer-2">
+                                            <div class="col">
+                                                <input type="text" name="name" id="name" placeholder="Full Name">
+                                            </div>
+                                            <div class="col">
+                                                <input type="email" name="email" id="email" placeholder="Email Address">
+                                            </div>
+                                            <div class="col">
+                                                <input type="number" name="phone" id="phone" placeholder="Phone Number">
+                                            </div>
+                                            <div class="col">
+                                                <input type="text" name="subject" id="subject" placeholder="Subject">
+                                            </div>
+                                            <div class="col col-lg-12">
+                                                <div class="dropdown-container">
+                                                    <div class="dropdown-select">
+                                                        <div class="d-flex flex-row align-items-center gap-3">
+                                                            <span class="selected-text">Project Type</span>
+                                                        </div>
+                                                        <i class="fa-solid fa-caret-down"></i>
+                                                    </div>
+                                                    <div class="dropdown-list">
+                                                        <div class="dropdown-option" data-value="commercial">Commercial</div>
+                                                        <div class="dropdown-option" data-value="short-film">Short Film</div>
+                                                        <div class="dropdown-option" data-value="music-video">Music Video</div>
+                                                        <div class="dropdown-option" data-value="event">Event</div>
+                                                        <div class="dropdown-option" data-value="other">Other</div>
+                                                    </div>
+                                                    <input type="hidden" id="project-type" name="project-type" class="dropdown-value">
+                                                </div>
+                                            </div>
+                                            <div class="col col-lg-12">
+                                                <textarea name="message" rows="6" id="Message" placeholder="Message"></textarea>
+                                            </div>
+                                        </div>
+    
+                                        <button type="submit" class="btn btn-accent">
+                                            <span>Send Message</span>
+                                            <i class="fa-solid fa-chevron-circle-right"></i>
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Maps Section -->
+        <section class="section p-0">
+            <iframe loading="lazy" class="maps"
+                src="https://maps.google.com/maps?q=London%20Eye%2C%20London%2C%20United%20Kingdom&amp;t=m&amp;z=14&amp;output=embed&amp;iwloc=near"
+                title="London Eye, London, United Kingdom" aria-label="London Eye, London, United Kingdom">
+            </iframe>
+        </section>
+
+        <!-- Faq Section -->
+        <div class="section">
+            <div class="hero-container">
+                <div class="faq-contact-wrapper">
+                    <div class="faq-heading-container">
+                        <h2>Frequently Asked Question</h2>
+                    </div>
+                    <div class="row row-cols-lg-2 row-cols-1 grid-spacer-2">
+                        <div class="col">
+                            <div class="accordion" id="faqAccordion1">
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header faq-accordion-header">
+                                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                                            How long does it take to get a response after I submit?
+                                        </button>
+                                    </h2>
+                                    <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion1">
+                                        <div class="accordion-body">
+                                            <p>We typically respond within 24 hours on business days. If your request is urgent, feel free to call us directly for faster communication.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header faq-accordion-header">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                                            Can I schedule a meeting before discussing project details?
+                                        </button>
+                                    </h2>
+                                    <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion1">
+                                        <div class="accordion-body">
+                                            <p>Absolutely! We offer free initial consultations to better understand your goals and guide you through the creative process. You can schedule a meeting via our contact form or calendar link.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header faq-accordion-header">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                                            What information should I include in my message?
+                                        </button>
+                                    </h2>
+                                    <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion1">
+                                        <div class="accordion-body">
+                                            <p>Please provide as much detail as possible — including your project type, timeline, budget range, and any creative references. This helps us tailor our response and quote accurately.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="accordion" id="faqAccordion2">
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header faq-accordion-header">
+                                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">
+                                            Where is your studio located and can I visit in person?
+                                        </button>
+                                    </h2>
+                                    <div id="faq4" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion2">
+                                        <div class="accordion-body">
+                                            <p>Our studio is based in Los Angeles, CA. In-person meetings are available by appointment only. We also offer virtual meetings for clients worldwide.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header faq-accordion-header">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq5">
+                                            Do you work with clients outside of the US?
+                                        </button>
+                                    </h2>
+                                    <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#faqAccordion2">
+                                        <div class="accordion-body">
+                                            <p>Yes, we collaborate with brands, artists, and companies globally. Our team is fully equipped to manage international productions, both remotely and on-location.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header faq-accordion-header">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq6">
+                                            How do I follow up if I haven't received a response?
+                                        </button>
+                                    </h2>
+                                    <div id="faq6" class="accordion-collapse collapse" data-bs-parent="#faqAccordion2">
+                                        <div class="accordion-body">
+                                            <p>If you haven't heard from us within 48 hours, please check your spam folder or reach out to us directly via email at hello@montrastudio.com.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer Section -->
+    <footer>
+        <div id="footer"></div>
+    </footer>
+
+    <script src="./assets/js/vendor/jquery.min.js"></script>
+    <script src="./assets/js/vendor/bootstrap.bundle.min.js"></script>
+    <script src="./assets/js/vendor/swiper-bundle.min.js"></script>
+    <script src="./assets/js/swiper-script.js"></script>
+    <script src="./assets/js/script.js"></script>
+    <script src="./assets/js/submit-form.js"></script>
+    <script src="./assets/js/video_embedded.js"></script>
+</body>
+</html>
