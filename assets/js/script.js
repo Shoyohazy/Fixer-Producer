@@ -283,6 +283,10 @@ function initCtaHighlightVideo() {
     });
 }
 
+// ===============================================
+// 🔹 9. Heading Project Animations
+// ===============================================
+
 function initProjectHeading() {
 const $section = $('.section-project');
 const $heading = $('.project-section-heading');
@@ -313,6 +317,10 @@ $(window).on('scroll', function () {
 });
 }
 
+// ===============================================
+// 🔹 10. Sidebar
+// ===============================================
+
 function initSidebar() {
     const $menuBtn = $('.nav-btn');
     const $closeBtn = $('.close-btn');
@@ -341,27 +349,6 @@ function initSidebar() {
     });
 }
 
-function initEditSidebar() {
-    const $contentBtn = $('.content-edit');
-    const $closeBtn = $('.close-btn-second');
-    const $overlay = $('.content-overlay');
-    const $sidebar = $('.content-edit-sidebar');
-
-    $contentBtn.click(function() {
-        $sidebar.addClass('active');
-        setTimeout(() => {
-            $overlay.addClass('active');    
-        }, 200);
-    });
-
-    $closeBtn.click(function() {
-        $sidebar.removeClass('active');
-        setTimeout(() => {
-            $overlay.removeClass('active');
-        }, 200);
-    });
-}
-
 function initSidebarDropdown() {
     const $dropdownButtons = $(".sidebar-dropdown-btn");
 
@@ -376,6 +363,10 @@ function initSidebarDropdown() {
         });
     });
 }
+
+// ===============================================
+// 🔹 11. Counter Animation
+// ===============================================
 
 function initCounter() {
     var $counters = $(".counter");
@@ -428,6 +419,9 @@ function initCounter() {
     });
 }
 
+// ===============================================
+// 🔹 12. Nav Link
+// ===============================================
 
 function initNavLink() {
     const currentUrl = window.location.href;
@@ -443,6 +437,10 @@ function initNavLink() {
         }
     });
 }
+
+// ===============================================
+// 🔹 5. Custom Dropdown
+// ===============================================
 
 function initCustomDropdown() {
     $('.dropdown-select').on('click', function(e) {
