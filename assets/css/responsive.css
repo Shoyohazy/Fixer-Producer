@@ -92,6 +92,9 @@
     .project-result{
         font-size: 24px;
     }
+    .project-result .result-link{
+        font-size: 24px;
+    }
     .core-heading-container {
         flex: 0 0 64%;
         max-width: 64%;
@@ -228,6 +231,7 @@
         font-size: 24px;
     }
     .footer-icon{
+        font-size: 18px;
         width: 40px;
         min-height: 40px;
     }
@@ -386,6 +390,9 @@
     .project-result{
         font-size: 21px;
     }
+    .project-result .result-link{
+        font-size: 21px;
+    }
     .accordion-item .service-accordion-header .accordion-button{
         font-size: 60px;
     }
@@ -520,6 +527,7 @@
         justify-content: center;
     }
     .footer-icon{
+        font-size: 16px;
         width: 35px;
         min-height: 35px;
     }
