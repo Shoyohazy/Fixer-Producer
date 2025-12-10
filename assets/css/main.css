@@ -43,7 +43,7 @@ Version: 1.0.0
 /* 30. Contact CTA Styles
 /* 31. Team Style
 /* 32. Partners Styles
-/* 33. Notfound Page Section
+/* 33. Notfound Page Style
 /* 34. FAQs Style
 /* 35. Blog Styles
 /* 36. Blog Post Styles
@@ -240,6 +240,10 @@ ul{
     overflow-y: visible;
 }
 
+.section-small{
+    padding: 0px 0px 0px 0px;
+}
+
 .section-footer{
     padding: 120px 20px 20px 20px;
     background-color: var(--accent-color);
@@ -333,6 +337,10 @@ ul{
     background-color: var(--primary);
     color: var(--accent-color);
     transform: rotate(0deg);
+}
+
+.btn-pricing{
+    justify-content: center;
 }
 
 /* 09. Card Styles */
@@ -1481,6 +1489,7 @@ ul{
 .project-heading-container {
     position: sticky;
     top: 15vh;
+    margin-bottom: -100px;
     z-index: 0;
     text-align: center;
     pointer-events: none;

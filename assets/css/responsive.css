@@ -37,6 +37,9 @@
     .section-cta-contact{
         padding: 0px 20px 0px 20px;
     }
+    .section-small{
+        padding: 0px 20px 0px 20px;
+    }
     .btn{
         padding: 15px 30px 15px 30px;
     }
@@ -76,6 +79,9 @@
     }
     .breadcrumb-item{
         font-size: 16px;
+    }
+    .project-heading-container{
+        margin-bottom: -65px;
     }
     .project-section-heading{
         font-size: 150px;
@@ -362,6 +368,9 @@
     }
     .service-detail-list li{
         font-size: 18px;
+    }
+    .project-heading-container{
+        margin-bottom: -30px;
     }
     .project-section-heading{
         font-size: 80px;

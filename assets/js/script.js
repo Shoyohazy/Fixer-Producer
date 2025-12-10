@@ -1,39 +1,29 @@
-Promise.all([
-fetch("./header.html").then(res => res.text()),
-fetch("./footer.html").then(res => res.text()),
-fetch("./sidebar.html").then(res => res.text())
-])
-.then(([headerHTML, footerHTML, sidebarHTML]) => {
-$("#header").html(headerHTML);
-$("#footer").html(footerHTML);
-$("#sidebar").html(sidebarHTML);
-})
-.then(() => {
-loadYouTubeAPI();
-initProjectHeading();
-initNavLink();
-initSidebar();
-initSidebarDropdown();
-initCounter();
-initCustomDropdown();
-initSubmitContact();
-initSubmitNewsletter();
+$(function() {
+    loadYouTubeAPI();
+    initProjectHeading();
+    initNavLink();
+    initSidebar();
+    initSidebarDropdown();
+    initCounter();
+    initCustomDropdown();
+    initSubmitContact();
+    initSubmitNewsletter();
 });
 
 // ===============================================
 // 🔹 1. Load YT API sekali saja
 // ===============================================
+
 function loadYouTubeAPI() {
-    if (!window.YT && !document.querySelector("script[src*='youtube.com/iframe_api']")) {
-	const tag = document.createElement("script");
-	tag.src = "https://www.youtube.com/iframe_api";
-	document.head.appendChild(tag);
-}
+    if (!window.YT && !$("script[src*='youtube.com/iframe_api']").length) {
+        $("<script>", { src: "https://www.youtube.com/iframe_api" }).appendTo("head");
+    }
 }
 
 // ===============================================
 // 🔹 2. Callback tunggal untuk semua video
 // ===============================================
+
 window.onYouTubeIframeAPIReady = function() {
     initBannerVideo();
     initTestimonialBannerVideo();
@@ -45,10 +35,12 @@ window.onYouTubeIframeAPIReady = function() {
 // ===============================================
 // 🔹 3. Banner Video
 // ===============================================
-function initBannerVideo() {
-    if (!document.getElementById("banner-video-background")) return;
 
-    const player = new YT.Player("banner-video-background", {
+function initBannerVideo() {
+    const $el = $("#banner-video-background");
+    if (!$el.length) return;
+
+    new YT.Player($el.attr("id"), {
         videoId: "pVA0G01aDfk",
         playerVars: {
             autoplay: 1,
@@ -56,18 +48,13 @@ function initBannerVideo() {
             mute: 1,
             loop: 1,
             playlist: "pVA0G01aDfk",
-            showinfo: 0,
             rel: 0,
-            enablejsapi: 1,
-            disablekb: 1,
             modestbranding: 1,
             iv_load_policy: 3,
             origin: window.location.origin
         },
         events: {
-            onReady: (e) => {
-                e.target.playVideo();
-            },
+            onReady: (e) => e.target.playVideo(),
             onStateChange: (e) => {
                 if (e.data === YT.PlayerState.ENDED) e.target.playVideo();
             }
@@ -75,66 +62,69 @@ function initBannerVideo() {
     });
 }
 
-
 // ===============================================
 // 🔹 4. Testimonial Banner Video
 // ===============================================
-function initTestimonialBannerVideo() {
-if (!document.getElementById("testimonial-video-background")) return;
 
-const player = new YT.Player("testimonial-video-background", {
-	videoId: "6J1XlyCxtPw",
-	playerVars: {
-	autoplay: 1,
-	controls: 0,
-	mute: 1,
-	loop: 1,
-	playlist: "6J1XlyCxtPw",
-	showinfo: 0,
-	rel: 0,
-	modestbranding: 1,
-	iv_load_policy: 3
-	},
-	events: {
-	onReady: (e) => {
-		e.target.playVideo();
-	},
-	onStateChange: (e) => {
-		if (e.data === YT.PlayerState.ENDED) e.target.playVideo();
-	}
-	}
-});
+function initTestimonialBannerVideo() {
+    const $el = $("#testimonial-video-background");
+    if (!$el.length) return;
+
+    new YT.Player($el.attr("id"), {
+        videoId: "6J1XlyCxtPw",
+        playerVars: {
+            autoplay: 1,
+            controls: 0,
+            mute: 1,
+            loop: 1,
+            playlist: "6J1XlyCxtPw",
+            rel: 0,
+            modestbranding: 1,
+            iv_load_policy: 3,
+            origin: window.location.origin
+        },
+        events: {
+            onReady: (e) => e.target.playVideo(),
+            onStateChange: (e) => {
+                if (e.data === YT.PlayerState.ENDED) e.target.playVideo();
+            }
+        }
+    });
 }
 
 // ===============================================
 // 🔹 5. Project Video Backgrounds (multiple)
 // ===============================================
-function initProjectVideoBackgrounds() {
-    const videoEls = document.querySelectorAll(".project-video-bg");
-    if (!videoEls.length) return;
 
-    videoEls.forEach((el) => {
-        const videoId = el.dataset.videoId;
-        new YT.Player(el.id, {
-        videoId,
-        playerVars: {
-            autoplay: 1,
-            mute: 1,
-            controls: 0,
-            loop: 1,
-            playlist: videoId,
-            modestbranding: 1,
-            rel: 0,
-            showinfo: 0,
-            iv_load_policy: 3,
-            playsinline: 1
-        },
-        events: {
-            onReady: (e) => {
-            e.target.mute();
-            e.target.playVideo();
+function initProjectVideoBackgrounds() {
+    const $videos = $(".project-video-bg");
+    if (!$videos.length) return;
+
+    $videos.each(function() {
+        const $el = $(this);
+        const id = $el.attr("id");
+        const videoId = $el.data("video-id");
+
+        new YT.Player(id, {
+            videoId,
+            playerVars: {
+                autoplay: 1,
+                mute: 1,
+                controls: 0,
+                loop: 1,
+                playlist: videoId,
+                playsinline: 1,
+                modestbranding: 1,
+                rel: 0,
+                iv_load_policy: 3,
+                origin: window.location.origin
+            },
+            events: {
+                onReady: (e) => {
+                    e.target.mute();
+                    e.target.playVideo();
+                }
             }
-        }
         });
     });
 }
@@ -142,22 +132,20 @@ function initProjectVideoBackgrounds() {
 // ===============================================
 // 🔹 6. Service Video Backgrounds (multiple)
 // ===============================================
+
 function initServiceVideoBackground() {
-    const videoEls = document.querySelectorAll(".service-video-bg");
-    if (!videoEls.length) return;
+    const $videos = $(".service-video-bg");
+    if (!$videos.length) return;
 
-    videoEls.forEach((el, index) => {
+    $videos.each(function(i) {
+        const $el = $(this);
+        if (!$el.attr("id")) $el.attr("id", "service-video-" + i);
 
-        // Jika tidak ada ID → generate otomatis
-        if (!el.id) el.id = "service-video-" + index;
+        const videoId = $el.data("video-id");
+        const start = parseFloat($el.data("start")) || 0;
+        const end = parseFloat($el.data("end")) || 0;
 
-        // Ambil atribut
-        const videoId = el.dataset.videoId;
-        const start = parseFloat(el.dataset.start) || 0;
-        const end = parseFloat(el.dataset.end) || 0;
-
-        // Buat player
-        const player = new YT.Player(el.id, {
+        const player = new YT.Player($el.attr("id"), {
             videoId,
             playerVars: {
                 autoplay: 1,
@@ -167,8 +155,9 @@ function initServiceVideoBackground() {
                 modestbranding: 1,
                 rel: 0,
                 iv_load_policy: 3,
-                start: start,
-                end: end
+                start,
+                end,
+                origin: window.location.origin
             },
             events: {
                 onReady: (e) => {
@@ -177,7 +166,6 @@ function initServiceVideoBackground() {
                     e.target.playVideo();
                 },
                 onStateChange: (e) => {
-                    // Jika video mencapai end → ulang ke start
                     if (end > 0 && e.data === YT.PlayerState.ENDED) {
                         e.target.seekTo(start);
                         e.target.playVideo();
@@ -186,31 +174,26 @@ function initServiceVideoBackground() {
             }
         });
 
-        // Simpan instance agar bisa dipause/play saat accordion berubah
-        el.ytplayer = player;
+        $el[0].ytplayer = player;
     });
 }
 
-// =======================================================
-//  SUPPORT: Pause saat accordion ditutup, play saat dibuka
-// =======================================================
-document.addEventListener("shown.bs.collapse", function (e) {
-    const container = e.target.querySelector(".service-video-bg");
-    if (container?.ytplayer) {
-        container.ytplayer.playVideo();
-    }
+//  SUPPORT: Pause when accordion closed, and play when opened
+
+$(document).on("shown.bs.collapse", function(e) {
+    const vid = $(e.target).find(".service-video-bg")[0];
+    if (vid?.ytplayer) vid.ytplayer.playVideo();
 });
 
-document.addEventListener("hidden.bs.collapse", function (e) {
-    const container = e.target.querySelector(".service-video-bg");
-    if (container?.ytplayer) {
-        container.ytplayer.pauseVideo();
-    }
+$(document).on("hidden.bs.collapse", function(e) {
+    const vid = $(e.target).find(".service-video-bg")[0];
+    if (vid?.ytplayer) vid.ytplayer.pauseVideo();
 });
 
 // ===============================================
 // 🔹 7. Utility — Resize video container
 // ===============================================
+
 function resizeVideo(containerSelector, playerInstance) {
 const container = document.querySelector(containerSelector);
 if (!container || !playerInstance) return;
@@ -221,11 +204,11 @@ const height = container.offsetHeight;
 let newWidth, newHeight;
 
 if (width / height > aspect) {
-	newWidth = width;
-	newHeight = width / aspect;
+    newWidth = width;
+    newHeight = width / aspect;
 } else {
-	newWidth = height * aspect;
-	newHeight = height;
+    newWidth = height * aspect;
+    newHeight = height;
 }
 
 const iframe = playerInstance.getIframe();
@@ -236,20 +219,21 @@ iframe.height = newHeight;
 // ===============================================
 // 🔹 8. CTA Highlight Video (multiple)
 // ===============================================
+
 function initCtaHighlightVideo() {
-    const videoEls = document.querySelectorAll(".cta-highlight-video");
-    if (!videoEls.length) return;
+    const $videos = $(".cta-highlight-video");
+    if (!$videos.length) return;
 
-    videoEls.forEach((el, index) => {
+    $videos.each(function(i) {
+        const $el = $(this);
 
-        // Generate ID kalau tidak ada
-        if (!el.id) el.id = "cta-highlight-video-" + index;
+        if (!$el.attr("id")) $el.attr("id", "cta-highlight-video-" + i);
 
-        const videoId = el.dataset.videoId;
-        const start = parseFloat(el.dataset.start) || 0;
-        const end = parseFloat(el.dataset.end) || 0;
+        const videoId = $el.data("video-id");
+        const start = parseFloat($el.data("start")) || 0;
+        const end = parseFloat($el.data("end")) || 0;
 
-        const player = new YT.Player(el.id, {
+        const player = new YT.Player($el.attr("id"), {
             videoId,
             playerVars: {
                 autoplay: 1,
@@ -259,10 +243,11 @@ function initCtaHighlightVideo() {
                 modestbranding: 1,
                 rel: 0,
                 iv_load_policy: 3,
-                start: start,
-                end: end,
-                loop: end === 0 ? 1 : 0,   // auto-loop jika tidak pakai end time
-                playlist: videoId
+                start,
+                end,
+                loop: end === 0 ? 1 : 0,
+                playlist: videoId,
+                origin: window.location.origin
             },
             events: {
                 onReady: (e) => {
@@ -279,7 +264,7 @@ function initCtaHighlightVideo() {
             }
         });
 
-        el.ytplayer = player;
+        $el[0].ytplayer = player;
     });
 }
 
@@ -288,33 +273,49 @@ function initCtaHighlightVideo() {
 // ===============================================
 
 function initProjectHeading() {
-const $section = $('.section-project');
-const $heading = $('.project-section-heading');
+    const $section = $(".section-project");
+    const $heading = $(".project-section-heading");
+    const $container = $(".project-heading-container");
 
-if ($section.length === 0 || $heading.length === 0) return;
+    if (!$section.length || !$heading.length) return;
 
-$(window).on('scroll', function () {
-	const viewportHeight = $(window).height();
-	const sectionTop = $section.offset().top;
-	const sectionHeight = $section.outerHeight();
-	const scrollTop = $(window).scrollTop();
-	const sectionBottom = sectionTop + sectionHeight;
+    $(window).on("scroll", function () {
+        const viewportH = $(window).height();
+        const scroll = $(window).scrollTop();
+        const secTop = $section.offset().top;
+        const secHeight = $section.outerHeight();
+        const secBottom = secTop + secHeight;
 
-	// Fade-out lebih cepat
-	const fadeStart = sectionBottom - viewportHeight * 0.8;
-	const fadeEnd = sectionBottom - viewportHeight * 0.5;
+        // Fade bottom
+        const fadeStart = secBottom - viewportH * 0.8;
+        const fadeEnd = secBottom - viewportH * 0.5;
 
-	if (scrollTop > fadeStart && scrollTop < fadeEnd) {
-	const progress = (scrollTop - fadeStart) / (fadeEnd - fadeStart);
-	const opacity = Math.max(0, 1 - progress);
+        if (scroll > fadeStart && scroll < fadeEnd) {
+            const progress = (scroll - fadeStart) / (fadeEnd - fadeStart);
+            $heading.css("opacity", 1 - progress);
+        } else if (scroll >= fadeEnd) {
+            $heading.css("opacity", 0);
+        } else {
+            $heading.css("opacity", 1);
+        }
 
-	$heading.css({ opacity });
-	} else if (scrollTop >= fadeEnd) {
-	$heading.css({ opacity: 0 });
-	} else {
-	$heading.css({ opacity: 1 });
-	}
-});
+        // Margin animation
+        const mStart = secTop + secHeight * 0.2;
+        const mEnd = secTop + secHeight * 0.5;
+
+        if (scroll >= mStart && scroll <= mEnd) {
+            const prog = (scroll - mStart) / (mEnd - mStart);
+            // Interpolasi dari CSS default (via getComputedStyle) ke 0
+            const defaultMargin = parseInt(window.getComputedStyle($container[0]).marginBottom);
+            const newMargin = defaultMargin + (prog * Math.abs(defaultMargin));
+            $container.css("margin-bottom", newMargin + "px");
+        } else if (scroll > mEnd) {
+            $container.css("margin-bottom", "0px");
+        } else {
+            // Returning css margin style
+            $container.css("margin-bottom", "");
+        }
+    });
 }
 
 // ===============================================
@@ -322,32 +323,25 @@ $(window).on('scroll', function () {
 // ===============================================
 
 function initSidebar() {
-    const $menuBtn = $('.nav-btn');
-    const $closeBtn = $('.close-btn');
-    const $overlay = $('.sidebar-overlay');
-    const $sidebar = $('.sidebar');
-  
-    $menuBtn.click(function() {
-      $overlay.addClass('active');
-      setTimeout(() => {
-        $sidebar.addClass('active');
-      }, 200);
+    const $menu = $(".nav-btn");
+    const $close = $(".close-btn");
+    const $overlay = $(".sidebar-overlay");
+    const $sidebar = $(".sidebar");
+
+    $menu.on("click", function() {
+        $overlay.addClass("active");
+        setTimeout(() => $sidebar.addClass("active"), 200);
     });
-  
-    $closeBtn.click(function() {
-      $sidebar.removeClass('active');
-      setTimeout(() => {
-        $overlay.removeClass('active');
-      }, 200);
-    });
-  
-    $overlay.click(function() {
-      $sidebar.removeClass('active');
-      setTimeout(() => {
-        $overlay.removeClass('active');
-      }, 200);
-    });
+
+    $close.on("click", closeSidebar);
+    $overlay.on("click", closeSidebar);
+
+    function closeSidebar() {
+        $sidebar.removeClass("active");
+        setTimeout(() => $overlay.removeClass("active"), 200);
+    }
 }
+
 
 function initSidebarDropdown() {
     const $dropdownButtons = $(".sidebar-dropdown-btn");
