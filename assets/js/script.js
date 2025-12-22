@@ -272,51 +272,26 @@ function initCtaHighlightVideo() {
 // 🔹 9. Heading Project Animations
 // ===============================================
 
-function initProjectHeading() {
-    const $section = $(".section-project");
-    const $heading = $(".project-section-heading");
-    const $container = $(".project-heading-container");
 
-    if (!$section.length || !$heading.length) return;
+function initProjectHeading() {
+    const $heading = $(".project-section-heading");
+    if (!$heading.length) return;
+
+    let lastScrollTop = $(window).scrollTop();
 
     $(window).on("scroll", function () {
-        const viewportH = $(window).height();
-        const scroll = $(window).scrollTop();
-        const secTop = $section.offset().top;
-        const secHeight = $section.outerHeight();
-        const secBottom = secTop + secHeight;
+        const currentScroll = $(this).scrollTop();
 
-        // Fade bottom
-        const fadeStart = secBottom - viewportH * 0.8;
-        const fadeEnd = secBottom - viewportH * 0.5;
-
-        if (scroll > fadeStart && scroll < fadeEnd) {
-            const progress = (scroll - fadeStart) / (fadeEnd - fadeStart);
-            $heading.css("opacity", 1 - progress);
-        } else if (scroll >= fadeEnd) {
-            $heading.css("opacity", 0);
+        if (currentScroll > lastScrollTop) {
+            $heading.addClass("is-hidden");
         } else {
-            $heading.css("opacity", 1);
+            $heading.removeClass("is-hidden");
         }
 
-        // Margin animation
-        const mStart = secTop + secHeight * 0.2;
-        const mEnd = secTop + secHeight * 0.5;
-
-        if (scroll >= mStart && scroll <= mEnd) {
-            const prog = (scroll - mStart) / (mEnd - mStart);
-            // Interpolasi dari CSS default (via getComputedStyle) ke 0
-            const defaultMargin = parseInt(window.getComputedStyle($container[0]).marginBottom);
-            const newMargin = defaultMargin + (prog * Math.abs(defaultMargin));
-            $container.css("margin-bottom", newMargin + "px");
-        } else if (scroll > mEnd) {
-            $container.css("margin-bottom", "0px");
-        } else {
-            // Returning css margin style
-            $container.css("margin-bottom", "");
-        }
+        lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
     });
 }
+
 
 // ===============================================
 // 🔹 10. Sidebar

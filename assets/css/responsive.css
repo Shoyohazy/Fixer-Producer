@@ -1,17 +1,5 @@
 /* 01. Tablet Responsive */
 
-@media screen and (max-width: 1199.98px) {
-    .nav-btn{
-        display: block;
-    }
-    .navbar-nav{
-        display: none;
-    }
-    .navbar-cta-container{
-        display: none;
-    }
-}
-
 @media screen and (max-width: 991.98px) {
     h1{
         font-size: 80px;
@@ -30,6 +18,15 @@
     }
     p{
         font-size: 16px;
+    }
+    .nav-btn{
+        display: block;
+    }
+    .navbar-nav{
+        display: none;
+    }
+    .navbar-cta-container{
+        display: none;
     }
     .section-core-service{
         padding: 120px 20px 515px 20px;
@@ -163,6 +160,9 @@
     }
     .faq-heading-container{
         width: 65%;
+    }
+    .partnership-title-content{
+        font-size: 16px;
     }
     .contact-cta-banner{
         padding: 50px 20px 50px 20px;
@@ -305,6 +305,13 @@
     }
     .breadcrumb-item{
         font-size: 14px;
+    }
+    .achievement-container{
+        flex-direction: column;
+        gap: 20px 20px;
+    }
+    .achievement-content{
+        width: 100%;
     }
     .achievement-stat{
         font-size: 39px;
@@ -449,6 +456,12 @@
     }
     .card-pricing .price{
         font-size: 28px;
+    }
+    .swiperpartner{
+        margin: 0px -120px 0px -120px;
+    }
+    .partnership-title-content{
+        font-size: 14px;
     }
     .contact-cta-banner{
         border-radius: 50px 0px 50px 0px;

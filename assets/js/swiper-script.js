@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
 	var swiperPartner = new Swiper(".swiperpartner", {
 	slidesPerView: 2,
-	spaceBetween: 10,
+	spaceBetween: 100,
 	loop: true,
 	loopedSlides: 5,
 	grabCursor: false,
@@ -14,9 +14,17 @@ document.addEventListener("DOMContentLoaded", function () {
 		pauseOnMouseEnter: true,
 	},
 	breakpoints: {
-		0: { slidesPerView: 2 },
-		768: { slidesPerView: 3 },
-		1024: { slidesPerView: 5 },
+		0: { 
+			slidesPerView: 3,
+			spaceBetween: 30
+		},
+		768: {
+			slidesPerView: 3,
+			spaceBetween: 100
+		},
+		992: { 
+			slidesPerView: 5
+		},
 	},
 	});
 });
