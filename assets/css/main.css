@@ -384,6 +384,7 @@ ul{
 
 .card-trust-us .card-number-wrapper{
     display: flex;
+    flex-direction: row;
     position: absolute;
     top: -30px;
     left: -45px;
@@ -727,7 +728,8 @@ ul{
     top: 0;
     left: -100%;
     width: 100%;
-    height: 100vh;
+    height: 100%;
+    min-height: 100vh;
     background: var(--accent-sidebar-overlay);
     transition: left 0.4s ease-in-out;
     z-index: 10;
@@ -758,6 +760,7 @@ ul{
 
 .sidebar-header {
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
     align-items: center;
     padding: 20px 20px 20px 20px;
@@ -1231,51 +1234,51 @@ ul{
 }
 
 .banner-inner.about-banner::before{
-    background-image: url('../images/young-black-woman-singing-while-being-with-her-fri-BTKH8T6.jpg');
+    background-image: url('../images/dummy-img-1920x900-2.jpg');
 }
 
 .banner-inner.service-banner::before{
-    background-image: url('../images/cameraman-filming-music-video-CD7JKUM.jpg');
+    background-image: url('../images/dummy-img-1920x900-2.jpg');
 }
 
 .banner-inner.service-detail-banner::before{
-    background-image: url('../images/cameraman-operating-equipment-in-studio-T3LZ2B2.jpg');
+    background-image: url('../images/dummy-img-1920x900-2.jpg');
 }
 
 .banner-inner.pricing-banner::before{
-    background-image: url('../images/operator-setting-his-camera-before-shooting-PURRF9Y.jpg');
+    background-image: url('../images/dummy-img-1920x900-2.jpg');
 }
 
 .banner-inner.project-banner::before{
-    background-image: url('../images/film-industry-7ZLFY7L.jpg');
+    background-image: url('../images/dummy-img-1920x900-2.jpg');
 }
 
 .banner-inner.project-detail-banner::before{
-    background-image: url('../images/male-video-editor-working-on-his-personal-computer-HQHD8ZL.jpg');
+    background-image: url('../images/dummy-img-1920x900-2.jpg');
 }
 
 .banner-inner.team-banner::before{
-    background-image: url('../images/photographer-capture-the-essence-of-the-opening-ce-TU8TLN7.jpg');
+    background-image: url('../images/dummy-img-1920x900-2.jpg');
 }
 
 .banner-inner.testimonial-banner::before{
-    background-image: url('../images/photographers-setting-cameras-before-shooting-65ME2DS.jpg');
+    background-image: url('../images/dummy-img-1920x900-2.jpg');
 }
 
 .banner-inner.blog-banner::before{
-    background-image: url('../images/two-confident-coworkers-indian-bearded-businessman-QHK94WX.jpg');
+    background-image: url('../images/dummy-img-1920x900-2.jpg');
 }
 
 .banner-inner.single-post-banner::before{
-    background-image: url('../images/video-production-backstage-behind-the-scenes-of-cr-L3RXVKA.jpg');
+    background-image: url('../images/dummy-img-1920x900-2.jpg');
 }
 
 .banner-inner.notfound-banner::before{
-    background-image: url('../images/video-production-backstage-behind-the-scenes-of-cr-L3RXVKA.jpg');
+    background-image: url('../images/dummy-img-1920x900-2.jpg');
 }
 
 .banner-inner.contact-banner::before{
-    background-image: url('../images/woman-operating-video-camera-in-neon-lights-NNLG5VA.jpg');
+    background-image: url('../images/dummy-img-1920x900-2.jpg');
 }
 
 .banner-inner-container{
@@ -1753,6 +1756,7 @@ ul{
 
 .core-service-heading-container {
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
     align-items: center;
     position: relative;
@@ -2908,6 +2912,7 @@ ul{
 
 .accordion-item .faq-accordion-header .accordion-button::after{
     display: flex;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
     background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');
