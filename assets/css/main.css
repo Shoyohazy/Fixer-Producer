@@ -1167,7 +1167,7 @@ ul {
   position: relative;
   display: flex;
   flex-direction: column;
-  gap: 0px 0px;
+  gap: 10px 10px;
   align-items: flex-start;
   overflow: hidden;
   z-index: 0;
@@ -2449,6 +2449,8 @@ ul {
 .contact-cta-title-container {
   position: relative;
   width: 87%;
+  margin-left: auto;
+  text-align: right;
   z-index: auto;
 }
 
@@ -2467,11 +2469,12 @@ ul {
 }
 
 .contact-cta-title {
-  font-size: 115px;
+  font-size: 90px;
   font-weight: 400;
   text-transform: uppercase;
-  line-height: 1.3em;
-  text-align: start;
+  line-height: 1.1em;
+  width: 100%;
+  text-align: right;
 }
 
 .contact-cta-title.heading-fill {
@@ -2484,6 +2487,7 @@ ul {
   position: absolute;
   top: 0;
   left: 0;
+  width: 100%;
   -webkit-text-stroke-width: 2px;
   stroke-width: 2px;
   -webkit-text-stroke-color: var(--primary);
