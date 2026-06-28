@@ -2911,6 +2911,11 @@ ul {
   white-space: nowrap;
 }
 
+.accordion-item .service-accordion-header .accordion-button {
+  position: relative;
+  top: -4px;
+}
+
 .accordion-item .service-accordion-header .accordion-button::after {
   display: none;
 }
